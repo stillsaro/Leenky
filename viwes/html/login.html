@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leenky - Log In</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/font-awesome/css/all.min.css">
+    <script src="../css/font-awesome/js/all.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="banner">
+            <h1 class="project-name"><a href="/" class="project-link">Leenky!</a></h1>
+        </header>
+        <div class="content">
+            <h2 class="form-title">Log In</h2>
+            <form class="login-form" action="/login" method="POST" hx-post="/login" hx-trigger="submit" hx-target="#login-response" hx-swap="outerHTML">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn login"><i class="fa fa-sign-in"></i> Log In</button>
+            </form>
+            <p class="account-message">Don’t have an account? <a href="/signup" class="signup-link">Sign up</a></p>
+            <div id="login-response"></div>
+        </div>
+    </div>
+</body>
+</html>

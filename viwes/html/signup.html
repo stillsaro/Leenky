@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leenky - Sign Up</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/font-awesome/css/all.min.css">
+    <script src="../css/font-awesome/js/all.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="banner">
+            <h1 class="project-name"><a href="/" class="project-link">Leenky!</a></h1>
+        </header>
+        <div class="content">
+            <h2 class="form-title">Sign Up</h2>
+            <form class="signup-form" action="/signup" method="POST" hx-post="/signup" hx-trigger="submit" hx-target="#signup-response" hx-swap="outerHTML">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn signup"><i class="fa fa-user-plus"></i> Sign Up</button>
+            </form>
+            <p class="account-message">Already have an account? <a href="/login" class="login-link">Log in</a></p>
+            <div id="signup-response"></div>
+        </div>
+    </div>
+</body>
+</html>

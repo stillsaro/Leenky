@@ -1,0 +1,257 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Helvetica', sans-serif;
+    background: linear-gradient(135deg, #1d2021 0%, #282828 100%);
+    color: #ebdbb2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Banner */
+.banner {
+    background-color: #3c3836;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
+/* Project Name */
+.project-name {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 3em;
+    margin: 0;
+    color: #fabd2f;
+}
+
+header .project-link {
+    color: #fabd2f;
+    text-decoration: none;
+}
+
+header .project-link:hover {
+    color: #d79921;
+    text-decoration: none;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+/* Welcome Message */
+.welcome-message {
+    font-size: 1.5em;
+    color: #83a598;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Button */
+.btn {
+    background: linear-gradient(45deg, #fe8019, #d65d0e);
+    color: #1d2021;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Button Hover */
+.btn:hover {
+    background: linear-gradient(45deg, #d65d0e, #fe8019);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    color: #7c6f64;
+}
+
+/* Contact Link */
+.contact-link {
+    font-size: 0.8em;
+    color: #fabd2f;
+    text-decoration: none;
+}
+
+/* Contact Link Hover */
+.contact-link:hover {
+    color: #d79921;
+}
+
+/* Signup and Login Form Styles */
+.form-title {
+    font-size: 2em;
+    color: #fabd2f;
+    margin-bottom: 20px;
+}
+
+.login-form, .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+}
+
+.form-group input {
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #3c3836;
+    color: #ebdbb2;
+}
+
+.form-group input::placeholder {
+    color: #7c6f64;
+}
+
+.form-group input:focus {
+    outline: 2px solid #fabd2f;
+}
+
+.account-message {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #ebdbb2;
+}
+
+.signup-link, .login-link {
+    color: #fabd2f;
+    text-decoration: none;
+}
+
+.signup-link:hover, .login-link:hover {
+    color: #d79921;
+}
+
+#login-response {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#login-response.error {
+    color: #ff4d4d !important;
+}
+
+#login-response.success {
+    color: #4CAF50 !important;
+}
+
+#signup-response {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#signup-response.error {
+    color: #ff4d4d !important;
+}
+
+#signup-response.success {
+    color: #4CAF50 !important;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .banner {
+        padding: 10px;
+    }
+    .project-name {
+        font-size: 2em;
+    }
+    .content {
+        padding-top: 50px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .form-title {
+        font-size: 1.5em;
+    }
+    .form-group {
+        max-width: 500px;
+    }
+    .form-group input {
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        padding: 5px;
+    }
+    .project-name {
+        font-size: 1.5em;
+    }
+    .content {
+        padding-top: 25px;
+    }
+    .btn {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+    .form-title {
+        font-size: 1.2em;
+    }
+    .form-group {
+        max-width: 300px;
+    }
+    .form-group input {
+        padding: 5px;
+        font-size: 0.8em;
+    }
+}

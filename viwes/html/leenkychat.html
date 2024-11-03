@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leenky Chat</title>
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/font-awesome/css/all.min.css">
+    <script src="../css/font-awesome/js/all.min.js"></script>
+</head>
+<body>
+    <section class="msger">
+
+        <header class="msger-header">
+            <div class="msger-header-title">
+                <i class="fas fa-comment-alt"></i> Leenky Chat
+            </div>
+            <div class="msger-header-options">
+                <span><i class="fas fa-cog"></i></span>
+            </div>
+        </header>
+        
+        <main class="msger-chat" id="chat-content">
+        </main>
+       
+        <form class="msger-inputarea">
+            
+            <input type="text" name="message" class="msger-input" placeholder="Enter your message...">
+            <button type="submit" class="msger-send-btn">Send</button>
+        </form>
+
+    </section>
+    <script>
+        currentUser = {{ .Username }}
+        var ws = new WebSocket("ws://localhost:3000/ws/leenkychat");
+        ws.onopen = function() {
+            console.log('Connected')
+        }
+        
+        ws.onmessage = function(event) {
+            var chatContent = document.getElementById('chat-content');
+            var msg = JSON.parse(event.data);
+            var msgClass = msg.sender === currentUser ? 'right-msg' : 'left-msg';
+            var msgHTML = `<div class="msg ${msgClass}">
+                <div class="msg-bubble">
+                    <div class="msg-info">
+                        <div class="msg-info-name">${msg.sender}</div>
+                        <div class="msg-info-time">${msg.time}</div>
+                    </div>
+                    <div class="msg-text">${msg.content}</div>
+                </div>
+            </div>`;
+            chatContent.innerHTML += msgHTML;
+        };
+
+        document.querySelector('.msger-inputarea').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var input = document.querySelector('.msger-input');
+            var message = input.value;
+            ws.send(message);
+            input.value = '';
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- Template for left messages -->
+{{define "left-msg"}}
+<div class="msg left-msg">
+    <div class="msg-bubble">
+        <div class="msg-info">
+            <div class="msg-info-name">{{ .Sender }}</div>
+            <div class="msg-info-time">{{ .Time }}</div>
+        </div>
+        <div class="msg-text">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{end}}
+
+<!-- Template for right messages -->
+{{define "right-msg"}}
+<div class="msg right-msg">
+    <div class="msg-bubble">
+        <div class="msg-info">
+            <div class="msg-info-name">{{ .Sender }}</div>
+            <div class="msg-info-time">{{ .Time }}</div>
+        </div>
+        <div class="msg-text">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{end}}
